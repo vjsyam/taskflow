@@ -12,8 +12,10 @@ const PORT = process.env.PORT || 5000;
 connectDB();
 
 // CORS — allow configured client origin and localhost for dev
+const cleanClientUrl = process.env.CLIENT_URL ? process.env.CLIENT_URL.replace(/\/$/, '') : null;
+
 const allowedOrigins = [
-  process.env.CLIENT_URL,
+  cleanClientUrl,
   'http://localhost:5173',
   'http://localhost:5174',
 ].filter(Boolean);
